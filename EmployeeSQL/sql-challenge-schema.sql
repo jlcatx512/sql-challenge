@@ -1,9 +1,8 @@
 ﻿-- Jadd Cheng
 -- September 25, 2019
 -- Exported from QuickDBD: https://www.quickdatabasediagrams.com/
--- Edited for purposes of assignment. Took out all quotation marks.
-
-CREATE SCHEMA jadd_schema;
+-- Edited for purposes of assignment. Deleted quotation marks.
+-- CREATE SCHEMA jlc-schema;
 
 CREATE TABLE Departments (
     dept_no CHAR(4)   NOT NULL,
@@ -24,8 +23,8 @@ CREATE TABLE Department_Employees (
 );
 
 CREATE TABLE Department_Managers (
-    emp_no INTEGER(10)   NOT NULL,
-    dept_no VARCHAR(4)   NOT NULL,
+    dept_no CHAR(4)   NOT NULL,
+    emp_no INTEGER   NOT NULL,
     from_date DATE   NOT NULL,
     to_date DATE   NOT NULL
 );
@@ -43,8 +42,8 @@ CREATE TABLE Employees (
 );
 
 CREATE TABLE Salaries (
-    emp_no INTEGER(10)   NOT NULL,
-    salary INTEGER(20)   NOT NULL,
+    emp_no INTEGER   NOT NULL,
+    salary INTEGER   NOT NULL,
     from_date DATE   NOT NULL,
     to_date DATE   NOT NULL
 );
@@ -62,11 +61,11 @@ REFERENCES Employees (emp_no);
 ALTER TABLE Department_Employees ADD CONSTRAINT fk_Department_Employees_dept_no FOREIGN KEY(dept_no)
 REFERENCES Departments (dept_no);
 
-ALTER TABLE Department_Managers ADD CONSTRAINT fk_Department_Managers_emp_no FOREIGN KEY(emp_no)
-REFERENCES Employees (emp_no);
-
 ALTER TABLE Department_Managers ADD CONSTRAINT fk_Department_Managers_dept_no FOREIGN KEY(dept_no)
 REFERENCES Departments (dept_no);
+
+ALTER TABLE Department_Managers ADD CONSTRAINT fk_Department_Managers_emp_no FOREIGN KEY(emp_no)
+REFERENCES Employees (emp_no);
 
 ALTER TABLE Salaries ADD CONSTRAINT fk_Salaries_emp_no FOREIGN KEY(emp_no)
 REFERENCES Employees (emp_no);
