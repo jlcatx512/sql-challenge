@@ -1,7 +1,7 @@
 ﻿-- Jadd Cheng
 -- September 25, 2019
 -- Exported from QuickDBD: https://www.quickdatabasediagrams.com/
--- NOTE! If you have used non-SQL datatypes in your design, you will have to change these here.
+-- Edited for purposes of assignment. Took out all quotation marks.
 
 CREATE SCHEMA jadd_schema;
 
